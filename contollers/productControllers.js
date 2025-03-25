@@ -63,7 +63,7 @@ module.exports={
                 }
             ]
         )
-        
+        res.status(200).json(reults)
      } catch (error) {
         res.status(500).json("Failed to get the product")
      }
