@@ -3,7 +3,8 @@ const app = express()
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const productRouter = require('./routes/productRoutes')
-const authrouter = require('./routes/authRoutes')
+const authRouter = require('./routes/authRoutes')
+const userRouter = require('./routes/userRoutes')
 
 
 //initilize dotenv
@@ -21,9 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
+app.use('/api/',authRouter)
 app.use('/api/products', productRouter)
-app.use('/api/',authrouter)
+app.use('/api/users/',userRouter)
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(process.env.PORT, () => console.log(`Example app listening on port ${process.env.PORT}!`))
