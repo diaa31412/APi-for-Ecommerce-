@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const productRouter = require('./routes/productRoutes')
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
+const ordersRouter = require('./routes/ordersRoutes')
 
 
 //initilize dotenv
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/',authRouter)
 app.use('/api/products', productRouter)
+app.use('/api/orders', ordersRouter)
 app.use('/api/users/',userRouter)
 
 app.get('/', (req, res) => res.send('Hello World!'))
