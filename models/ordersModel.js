@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
-const {Schema , model} = new mongoose
+
+const { Schema, model } = mongoose;
 
 const ordersSchema =  new Schema({
     userId:{type:String,required:true},
