@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const {Schema , model} = new mongoose
 
-const ordersSchema = Schema({
+const ordersSchema =  new Schema({
     userId:{type:String,required:true},
     customerId:{type: String , required: true},
     productId:{
@@ -15,6 +15,6 @@ const ordersSchema = Schema({
     deliveryStatus:{type:String,required:true , default: "pending"},
     PaymentStatus:{type:String,required:true}
    
-},{timesstamps: true});
+},{timestamps: true});
 
 module.exports = model('Orders',ordersSchema);

@@ -19,6 +19,6 @@ const cartSchema = Schema({
         }
     ]
    
-},{timesstamps: true});
+},{timestamps: true});
 
 module.exports = model('Cart',cartSchema);
