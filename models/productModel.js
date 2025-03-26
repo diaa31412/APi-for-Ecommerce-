@@ -15,7 +15,7 @@ const productSchema = new Schema({
                     type:String , required :true
                 },
                 isSelected: {
-                    type:Boolean , required: false , default: false
+                    type:Boolean ,  default: false
                 }
             }
         ]

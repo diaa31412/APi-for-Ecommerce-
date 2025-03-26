@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
+const cors = require('cors');
 const productRouter = require('./routes/productRoutes')
 const authRouter = require('./routes/authRoutes')
 const userRouter = require('./routes/userRoutes')
@@ -20,9 +21,9 @@ mongoose.connect(process.env.DATA_BASE)
 .catch((err) => console.log(err))
 
 
-app.use(express.json());
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors())
 
 app.use('/api/',authRouter)
 app.use('/api/products', productRouter)

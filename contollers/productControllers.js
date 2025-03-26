@@ -1,13 +1,21 @@
 const Product = require('../models/productModel')
 
 module.exports={
+
+    
     //Create new product 
     createProduct: async(req,res) =>{
 
-    const newProduct= new Product(req.body)
+// Validate required fields
+            const { name, title, category, imageUrl, oldPrice, price, sizes, description } = req.body;
+            if (!name || !title || !category || !imageUrl ||!oldPrice || !sizes || !price || !description) {
+                return res.status(400).json({ error: "All required fields must be provided." });
+            }
+   
     try{
+        const newProduct= new Product(req.body)
         await newProduct.save()
-        res.status(200).json("create new product successfual")
+        res.status(201).json("create new product successfual")
 
     }catch(err){
         res.status(500).json("Failed to create new product")
